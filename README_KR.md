@@ -19,19 +19,19 @@ xLua 는 기능, 성능, 편의성에 있어 많은 비약적인 발전을 이�
 * C# 과 Lua 사이 오브젝트들을 주고 받을 때 GC 최적화, 맞춤형 구조, C# 가비지 컬렉팅이 없습니다. 
 * 에디터 모드에서 코드를 작성하지 않아도 되는 가벼운 개발 방식을 제공합니다.
 
-좀 더 자세한 기능에 대해 알고 싶다면 [특징](Assets/XLua/Doc/features_KR.md)문서를 참고해주세요.
+좀 더 자세한 기능에 대해 알고 싶다면 [특징](Assets/XLua/Doc/Features_KR.md)문서를 참고해주세요.
 
 ## 설치
 
 zip 패키지를 언팩하면 Unity 프로젝트 Assets 디렉토리를 확인할 수 있습니다. 여러분의 유니티 프로젝트에도 동일한 디렉토리 구조로 넣어주시면 됩니다.
 
-다른 디렉토리에 설치하고 싶다면 [FAQ](Assets/XLua/Doc/Faq_EN.md). 항목을 참고 부탁 드립니다.
+다른 디렉토리에 설치하고 싶다면 [FAQ](Assets/XLua/Doc/Faq_KR.md). 항목을 참고 부탁 드립니다.
 
 ## 문서
 
-* [FAQ](Assets/XLua/Doc/Faq_EN.md): 자주 문의되는 질문들에 대한 답변을 정리해놓았습니다. 처음 시작할 때 생기는 궁금한 점들을 찾아볼 수 있습니다.
+* [FAQ](Assets/XLua/Doc/Faq_KR.md): 자주 문의되는 질문들에 대한 답변을 정리해놓았습니다. 처음 시작할 때 생기는 궁금한 점들을 찾아볼 수 있습니다.
 * (필독!) [XLua 튜토리얼](Assets/XLua/Doc/XLua_Tutorial_EN.md): 튜토리얼입니다. 참고할만한 코드는 [여기](Assets/XLua/Tutorial/)에서 찾아보실 수 있습니다.
-* (필독!) [XLua 설정](Assets/XLua/Doc/Configure_EN.md): xLua 를 설정하는 방법입니다.
+* (필독!) [XLua 설정](Assets/XLua/Doc/Configure_KR.md): xLua 를 설정하는 방법입니다.
 * [핫픽스 가이드](Assets/XLua/Doc/Hotfix_EN.md): 핫픽스 기능 설명서입니다.
 * [xLua 써드 파티 Lua 라이브러리 추가 및 삭제](Assets/XLua/Doc/Add_Remove_Lua_Lib.md): 써드 파티 Lua 확장 라이브러리 추가나 삭제하는 방법입니다.
 * [xLua API](Assets/XLua/Doc/XLua_API_EN.md): API 매뉴얼입니다/
