@@ -4,11 +4,11 @@
 
 xLua is currently released as a zip package and can be extracted to the project directory.
 
-## XLua Can xLua be placed in another directory?
+## xLua 를 다른 디렉토리로 옮길 수 있을까요?
 
-Yes, but the generated code directory needs to be configured (by default, it is in the Assets\XLua\Gen directory). For details, see the GenPath configuration in XLua Configuration.doc.
+가능합니다. 하지만 코드 생성 디렉토리 설정을 변경해주어야 합니다. (기본적으로 Assets\XLua\Gen 디렉토리입니다.) 자세한 사항은 XLua Configuration.doc 안에 있는 GenPath 설정을 참고해주세요.
 
-The important thing to note about changing directories is that the generated code and xLua core code must be in the same assembly. If you want to use the hotfix function, the xLua core code must be in the Assembly-CSharp assembly.
+디렉토리 변경시 주의해야할 점은 생성된 코드와 xLua 코어 코드가 동일한 어셈블리에 있어야 한다는 것입니다. 핫픽스 기능을 사용하려면 xLua 코어 코드가 Assembly-CSharp 어셈블리에 있어야 합니다.
 
 ## Does Lua source code only use the txt extension?
 
