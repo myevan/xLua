@@ -125,15 +125,11 @@ C# 에서 Lua 데이터 구조를 다루는 방법을 시작해보도록 하겠�
 
 새로운 C# 오브젝트를 생성할 수 있습니다.
 
-    ```cs
     var newGameObj = new UnityEngine.GameObject();
-    ```
 
 Lua 에서 C# 오브젝트를 생성하는 방법입니다.
 
-    ```lua
     local newGameObj = CS.UnityEngine.GameObject()
-    ```
 
 몇 가지 경우를 제외하고 동일합니다.
 
@@ -142,58 +138,42 @@ Lua 에서 C# 오브젝트를 생성하는 방법입니다.
 
 다양한 생성자에 대응하려면 어떻게 해야 하나요? 문제 없습니;다. xLua 는 오버로드를 지원합니다. 예를 들어 만약 1개의 string 파라미터를 가진 GameObject 생성자를 호출한다면 아래처럼 작성할 수 있습니다.
 
-    ```lua
     local newGameObj2 = CS.UnityEngine.GameObject('helloworld')
-    ```
 
 #### C# 스태틱 프로퍼티와 메서드 접근하기
 
 ##### 스태틱 프로퍼티 읽기
 
-    ```lua
     CS.UnityEngine.Time.deltaTime
-    ```
 
 ##### 스태틱 프로퍼티 쓰기
 
-    ```lua
     CS.UnityEngine.Time.timeScale = 0.5
-    ```
 
 ##### 스태틱 메서드 호츨
 
-    ```lua
     CS.UnityEngine.GameObject.Find('helloworld')
-    ```
 
 팁: 자주 접근하는 타입에 대해서 호출하기 전에 로컬 변수에 레퍼런스해둔다면 타이핑 시간을 줄이고 성능을 개선할 수 있습니다.
 
-    ```lua
     local GameObject = CS.UnityEngine.GameObject
     GameObject.Find('helloworld')
-    ```
 
 #### C# 멤버 프로퍼티와 메서드 접근하기
 
 ##### 멤버 프로퍼티 읽기
 
-    ```lua
     testobj.DMF
-    ```
 
 ##### 멤버 프로퍼티 쓰기
 
-    ```lua
     testobj.DMF = 1024
-    ```
 
 ##### 멤버 메서드 호출
 
 알림: 멤버 메서드를 호출할 때 첫번째 파라미터는 현재 오브젝트를 리턴하게 됩니다. 우리는 다음과 같은 `:` 이라는 문법적 설탕(syntactic sugar) 사용을 추천합니다:
 
-    ```lua
     testobj:DMFunc()
-    ```
 
 ##### 부모 프로퍼티와 메서드
 
@@ -209,10 +189,8 @@ Lua 호출 리턴 규칙: C# 함수의(리턴 값이 존재할 경우) 리턴 �
 
 예를 들어 다음과 같은 방식으로 다른 파라미터 타입들로 오버로드된 함수에 접근할 수 있습니다.
 
-    ```lua
     testobj:TestFunc(100)
     testobj:TestFunc('hello')
-    ```
 
 TestFunc 의 int 파라미터와 string 파라미터는 구분되서 접근됩니다.
 
@@ -230,15 +208,11 @@ C# 이 디폴트 값이 있는 함수를 호출하는 것과 동일합니다. �
 
 C# 파라미터
 
-    ```cs
     void VariableParamsFunc(int a, params string[] strs)
-    ```
 
 Lua 호출 방법
 
-    ```lua
     testobj:VariableParamsFunc(5, 'hello', 'john')
-    ```
 
 ##### 확장 메서드 사용하기
 
@@ -252,18 +226,14 @@ C# 에 정의하면 Lua 에서 사용할 수 있습니다.
 
 열거형 값은 열거형 스태틱 프로퍼티와 동일합니다.
 
-    ```lua
     testobj:EnumTestFunc(CS.Tutorial.TestEnum.E1)
-    ```
 
 EnumTestFunc 함수 파라미터는 Tutorial.TestEnum 타입입니다.
 
 Enum 은 __CastFrom 메서드를 가지고 있습니다. 정수나 문자열 값을 열거형으로 변환해줍니다.
 
-    ```lua
     CS.Tutorial.TestEnum.__CastFrom(1)
     CS.Tutorial.TestEnum.__CastFrom('E1')
-    ```
 
 ##### delegate 사용 (call, +, -)
 
@@ -281,15 +251,11 @@ C# delegate 호출: lUa 함수를 호출하는 것과 동일합니다.
 
 이벤트 콜백 추가
 
-    ```lua
     testobj:TestEvent('+', lua_event_callback)
-    ```
 
 이벤트 콜백 삭제
 
-    ```lua
     testobj:TestEvent('-', lua_event_callback)
-    ```
 
 ##### 64 비트 정수 지원
 
@@ -303,7 +269,6 @@ C# delegate 호출: lUa 함수를 호출하는 것과 동일합니다.
 
 예시: C# B 구조체 정의(타입 지원)
 
-    ```cs
     public struct A
     {
     public int a;
@@ -314,19 +279,14 @@ C# delegate 호출: lUa 함수를 호출하는 것과 동일합니다.
     public A b;
     public double c;
     }
-    ```
 
 A 타입은 멤버 함수를 가지고 있습니다.
 
-    ```cs
     void Foo(B b)
-    ```
 
 Lua 는 B 타입 파라미터를 아래처럼 호출하게 됩니다.
 
-    ```lua
     obj:Foo({b = {a = 100}, c = 200})
-    ```
 
 ##### Get 타입 (C# 의 typeof 와 동일)
 
@@ -338,8 +298,6 @@ Lua 는 typed language 가 아니기 때문에 strongly typed languaged 처럼 "
 다만 비슷하게 사용 가능한 방법이 있습니다: xLua 가 생성된 코드로 object 를 호출하면 됩니다.
 어떤 상황에 사용할 수 있을까요? 경우에 따라 써드 파티 라이브러리들은 interface 나 abstract 타입을 노출하는 경우가 있습니다. 구현이 숨겨져 있기 때문에 구현 타입에 대한 코드를 생성할 수 없습니다. xLua 는 이러한 구현 타입을 생성되지 않은 코드로 식별하며 리플렉션을 통해 접근하게 됩니다. 이런 타입들이 자주 호출될 경우 성능에 큰 영향을 미치게 됩니다. interface 나 abstract 타입을 생성된 코드에 추가해 오브젝트 접근시 사용할 수 있습니다:
 
-    ```lua
     cast(calc, typeof(CS.Tutorial.Calc))
-    ```
 
 위 예시에서는 CS.Tutorial.Calc 생성된 코드를 사용해 calc 오브젝트에 접근하는 방법입니다.
