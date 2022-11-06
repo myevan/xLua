@@ -54,7 +54,7 @@ C# 에서 Lua 데이터 구조를 다루는 방법을 시작해보도록 하겠�
 
 1. 전역 기본 자료형(GlobalBasicDataType) 얻기
 
-    LuaEnv.Global 에서 `GEt<T>` 메서드를 사용하면 리턴 받는 유형을 정할 수 있습니다.
+    LuaEnv.Global 에서 `Get<T>` 메서드를 사용하면 리턴 받는 유형을 정할 수 있습니다.
 
         luaenv.Global.Get<int>("a")
         luaenv.Global.Get<string>("b")
@@ -125,7 +125,7 @@ C# 에서 Lua 데이터 구조를 다루는 방법을 시작해보도록 하겠�
 
 새로운 C# 오브젝트를 생성할 수 있습니다.
 
-    ```c#
+    ```cs
     var newGameObj = new UnityEngine.GameObject();
     ```
 
@@ -230,13 +230,13 @@ C# 이 디폴트 값이 있는 함수를 호출하는 것과 동일합니다. �
 
 C# 파라미터
 
-    ```C#
+    ```cs
     void VariableParamsFunc(int a, params string[] strs)
     ```
 
 Lua 호출 방법
 
-    ```Lua
+    ```lua
     testobj:VariableParamsFunc(5, 'hello', 'john')
     ```
 
@@ -303,7 +303,7 @@ C# delegate 호출: lUa 함수를 호출하는 것과 동일합니다.
 
 예시: C# B 구조체 정의(타입 지원)
 
-    ```C#
+    ```cs
     public struct A
     {
     public int a;
@@ -318,7 +318,7 @@ C# delegate 호출: lUa 함수를 호출하는 것과 동일합니다.
 
 A 타입은 멤버 함수를 가지고 있습니다.
 
-    ```C #
+    ```cs
     void Foo(B b)
     ```
 
